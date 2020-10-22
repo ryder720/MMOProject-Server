@@ -41,8 +41,18 @@ class ServerHandle
         if (_fromClient != _clientID)
         {
             Debug.Log($"{_fromClient} has sent the wrong id: {_clientID}. Real sus");
+            return;
         }
+        
+        
 
-        ServerSend.SendChatMessage(_clientID, _msg); // Just for testing
+        string[] _msgSplit = _msg.Split();
+        if (!_msgSplit[0].Contains("/"))  // Parse for command starting with /. EX: /say blah blah blah
+        {
+            ServerSend.SendChatMessage(_clientID, _msg);
+            Debug.Log($"{Server.clients[_fromClient].player.username}: {_msg}");
+            return;
+        }
+        NetworkManager.instance.ExecuteCommand(_fromClient, _msgSplit);
     }
 }

@@ -158,6 +158,19 @@ class ServerSend
         }
     }
 
+    public static void SendTellMessage(int _fromPlayerID, int _toPlayerID, string _msg)
+    {
+        using(Packet _packet = new Packet((int)ServerPackets.chatTell))
+        {
+            _packet.Write(_fromPlayerID);
+            _packet.Write(_msg);
+
+            SendTCPData(_toPlayerID, _packet);
+            if(_fromPlayerID != 0)
+                SendTCPData(_fromPlayerID, _packet);
+        }
+    }
+
     #endregion
 }
 

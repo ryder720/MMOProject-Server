@@ -15,7 +15,8 @@ public enum ServerPackets
     spawnActor,
     actorPosition,
     actorRotation,
-    chatUpdate
+    chatUpdate,
+    chatTell
 
 }
 

@@ -6,15 +6,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // Player identification
     public int id;
     public string username;
+
+    // Movement
     public CharacterController controller;
     public float gravity = -9.81f;
     public float moveSpeed = 5f;
     public float jumpSpeed = 5f;
-
     private bool[] inputs;
     private float yVelocity = 0;
+
+    // Statistics
+    public float health;
+    public float maxHealth;
+
+    
 
     private void Start()
     {
