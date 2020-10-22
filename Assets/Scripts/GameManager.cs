@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     public Actors InstantiateActor()
     {
-        return Instantiate(actorPrefab, new Vector3(4, 50f, 0), Quaternion.identity).GetComponent<Actors>();
+        return Instantiate(actorPrefab, new Vector3(1584.9f, 35.5f, 1762.9f), Quaternion.identity).GetComponent<Actors>();
     }
 
 
